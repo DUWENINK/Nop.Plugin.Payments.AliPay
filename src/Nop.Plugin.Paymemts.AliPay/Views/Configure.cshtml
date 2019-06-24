@@ -1,0 +1,63 @@
+﻿@model ConfigurationModel
+@using Nop.Plugin.Payments.AliPay.Models;
+@using Nop.Web.Framework;
+@inject Nop.Core.IWebHelper webHelper
+@{
+    Layout = "_ConfigurePlugin";
+}
+@await Component.InvokeAsync("StoreScopeConfiguration")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.SellerEmail_OverrideForStore, model => model.SellerEmail, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.SellerEmail)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.SellerEmail)
+                        @Html.ValidationMessageFor(model => model.SellerEmail)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.Key_OverrideForStore, model => model.Key, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.Key)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Key)
+                        @Html.ValidationMessageFor(model => model.Key)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.Partner_OverrideForStore, model => model.Partner, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.Partner)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.Partner)
+                        @Html.ValidationMessageFor(model => model.Partner)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.AdditionalFee_OverrideForStore, model => model.AdditionalFee, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.AdditionalFee)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.AdditionalFee)
+                        @Html.ValidationMessageFor(model => model.AdditionalFee)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

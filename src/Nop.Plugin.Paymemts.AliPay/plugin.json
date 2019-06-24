@@ -1,0 +1,11 @@
+{
+  "Group": "Payment methods",
+  "FriendlyName": "AliPay-DUWENINK",
+  "SystemName": "Payments.AliPay",
+  "Version": "0.1",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "DUWENINK",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.AliPay.dll",
+  "Description": "AliPay-DUWENINK"
+}
